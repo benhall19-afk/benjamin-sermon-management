@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* Lesson Type Colors */
+  --color-sermon-am: #3B82F6;
+  --color-afternoon-study: #10B981;
+  --color-sermon-pm: #8B5CF6;
+
+  /* Status Colors (Scheduled) */
+  --color-status-idea: #F59E0B;
+  --color-status-in-progress: #3B82F6;
+  --color-status-complete: #10B981;
+  --color-status-archive: #6B7280;
+
+  /* Source Sermon Status Colors */
+  --color-draft: #EF4444;
+  --color-needs-polish: #F59E0B;
+  --color-ready-to-preach: #10B981;
+  --color-complete-source: #6B7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
