@@ -5,6 +5,8 @@ import {
   DragOverlay,
   closestCorners,
   PointerSensor,
+  MouseSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -78,9 +80,23 @@ function CalendarApp() {
   // Filtered schedule
   const filteredSchedule = useFilteredSchedule(schedule, filters);
 
-  // DnD sensors
+  // DnD sensors - configured for iPad Magic Keyboard trackpad and touch support
   const sensors = useSensors(
+    useSensor(MouseSensor, {
+      // Mouse sensor for trackpad/mouse - requires movement before activating
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(TouchSensor, {
+      // Touch sensor with delay to distinguish from scroll
+      activationConstraint: {
+        delay: 200,
+        tolerance: 5,
+      },
+    }),
     useSensor(PointerSensor, {
+      // Fallback pointer sensor
       activationConstraint: {
         distance: 8,
       },
@@ -201,7 +217,7 @@ function CalendarApp() {
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen-safe bg-gray-100">
         {/* Header */}
         <header className="bg-white shadow-sm border-b border-gray-200">
           <div className="max-w-full mx-auto px-4 py-4">

@@ -34,6 +34,7 @@ export function LessonCard({ sermon, onClick }: LessonCardProps) {
       {...attributes}
       onClick={handleClick}
       className={`
+        draggable-item
         p-3 bg-white rounded-lg border border-gray-200 shadow-sm
         hover:shadow-md hover:border-gray-300 transition-all
         ${isDragging ? 'cursor-grabbing ring-2 ring-blue-400' : 'cursor-grab'}
