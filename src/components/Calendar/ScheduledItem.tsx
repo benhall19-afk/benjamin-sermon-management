@@ -40,6 +40,7 @@ export function ScheduledItem({ lesson, onClick, compact = false }: ScheduledIte
         {...attributes}
         onClick={handleClick}
         className={`
+          draggable-item
           flex items-center gap-1 p-1 rounded text-xs cursor-pointer
           bg-white border shadow-sm hover:shadow transition-shadow
           ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
@@ -60,6 +61,7 @@ export function ScheduledItem({ lesson, onClick, compact = false }: ScheduledIte
       {...attributes}
       onClick={handleClick}
       className={`
+        draggable-item
         p-2 rounded-lg bg-white border shadow-sm hover:shadow-md transition-all
         ${isDragging ? 'cursor-grabbing ring-2 ring-blue-400' : 'cursor-grab'}
       `}
